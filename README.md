@@ -156,9 +156,105 @@ public interface BinaryOperator<T> extends BiFunction<T,T,T> {
 基本类型为避免拆装箱，提供了基本类型的函数式接口
 ### Lambda 表达式类型检查
 从Lambda的上下文推断类型，上下文中的Lambda表达式需要的类型为目标类型 
-```java
-List<String> appleColor = map(apples,(Apple apple)  -> apple.getColor() )
-``` 
 ### Lambda 表达式类型推断
+
 ### Lambda 表达式类型限制
+
+### 方法引用
+重复使用现有的方法定义，并像Lambda一样传递他们
+```
+目标引用::方法名
+Object::toString
+```
+- 静态方法引用
+- 任意类型实例方法引用
+- 现有对象的实例方法引用
+
+### 构造函数引用
+```
+ClassName::new
+```
+
+## Stream 流
+以声明的方式处理数据集合
+### 流是什么
+从支持数据处理操作的源生成的元素序列
+- 元素序列
+    以计算为目的
+- 源
+    使用一个提供数据的源，如集合，数组或输入输出资源
+- 数据处理操作    
+    如filter,map,reduce,find,match,sort等
+- 流水线
+    很多流操作返回一个流，多个操作可链接起来，形成一个大的流水线
+- 内部迭代
+    不需要显示迭代  
+- 只能遍历一次
+    流只能遍历一次，遍历完后，不能再次操作
+### 流式代码特点
+- 声明性-更简洁，更易读
+- 可复合-更灵活
+- 可并行-性能更好
+
+### 流操作
+####  中间操作
+可以连接起来的流操作,除非流水线上触发一个终端操作，否则中间操作不会执行任何处理。
+
+- filter 
+    过滤
+- map
+    映射
+- flatMap
+    饼平化 
+- sorted 
+    排序
+- distinct
+    去重
+- limit 
+    截取   
+- skip
+    跳过元素
+####  终端操作
+关闭流的操作。从流水线生成结果。
+
+- forEach
+    消费
+- count
+    计算总数
+- collect 
+    收集
+### 流的使用
+- 数据源执行查询
+- 中间操作形成流水线
+- 终端操作生成结果
+
+### 构建器模式
+
+##  流操作
+
+### 筛选 filter
+使用 filter 筛选 
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+   boolean test(T t);
+} 
+ ```
+### 去重 distinct
+Stream.distinct() ,更具equal()判断对象是否相等。
+
+### 截取 limit 
+Stream.limit()
+
+### 跳过元素 skip
+Stream.skip()
+### 映射 map
+Stream.map(),接受一个函数作参数，函数被应用到每个元素上，将其映射成一个新的元素 
+### 流饼平化  flatMap
+Stream.flatMap(),一个流中的每个值都换成另一个流
+
+### 查找匹配
+
+-  至少匹配一个元素 anyMatch
+Stream.anyMatch()
 
