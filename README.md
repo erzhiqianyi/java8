@@ -253,8 +253,72 @@ Stream.map(),接受一个函数作参数，函数被应用到每个元素上，�
 ### 流饼平化  flatMap
 Stream.flatMap(),一个流中的每个值都换成另一个流
 
-### 查找匹配
+### 匹配
+- 至少匹配一个元素 anyMatch
 
--  至少匹配一个元素 anyMatch
 Stream.anyMatch()
+
+- 匹配所有元素 allMatch
+
+Stream.allMatch()
+
+- 没有任何元素匹配  noneMatch
+
+Stream.noneMatch()
+
+### 查找 
+
+- 查找任意元素 findAny
+
+Stream.findAny()
+
+- 查找第一个元素  findFirst
+
+Stream.findFirst()
+
+### 归约 reduce
+```java
+T reduce(T identity, BinaryOperator<T> accumulator);
+
+Optional<T> reduce(BinaryOperator<T> accumulator);
+
+<U> U reduce(U identity,<U, ? super T, U> accumulator,
+                 BinaryOperator<U> combiner);
+
+```
+#### 元素求和
+- Integer::sum
+```java
+IntStream.of(1,2,3,4,5,6).reduce(0,(x,y) -> x+y);
+
+IntStream.of(1,2,3,4,5,6).reduce(0,Integer::sum);
+```
+#### 最大值最小值  
+
+- Integer::max
+- Integer::min
+```java
+
+IntStream.of(1, 2, 3, 4, 5, 6).reduce(Integer::max).getAsInt();
+
+IntStream.of(1, 2, 3, 4, 5, 6).reduce( Integer::min).getAsInt();
+```
+
+### 数值流
+避免拆装箱成本
+#### 原始类型流
+- IntStream
+- DoubleStream
+- LongStream
+
+#### 映射到数值流 
+- mapToInt
+- mapToDouble
+- mapToLong
+
+#### 转回到对象流
+boxed()
+#### 数值范围 
+- range()
+- rangeClosed()
 
