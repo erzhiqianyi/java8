@@ -322,3 +322,40 @@ boxed()
 - range()
 - rangeClosed()
 
+### 创建流
+- Stream.of()
+```java
+public static<T> Stream<T> of(T... values) {
+        return Arrays.stream(values);
+}
+``` 
+- 空流  Stream.empty()
+
+- 由数组创建流 Arrays.stream()
+```java
+public static <T> Stream<T> stream(T[] array) {
+        return stream(array, 0, array.length);
+}
+```
+- 由文件生成流 Files.lines()
+
+```java
+Stream<String> lines = Files.lines( Paths.get("README.md"));
+lines.forEach(System.out::println);
+```
+
+- 由函数生成流 生成无限流
+    - Stream.iterate()
+        依次生成一系列值 
+        ```java
+        public static<T> Stream<T> iterate(final T seed, final UnaryOperator<T> f) {}
+        ``` 
+    - Stream.generate()
+        接受 Supplier 并返回Stream
+        ```java
+            public static<T> Stream<T> generate(Supplier<? extends T> s) {
+            }
+        ```
+
+## 流收集数据
+ 
