@@ -27,13 +27,7 @@ public class FilterSample {
                 "猪肉,500,0,MEAT",
                 "鸡,20,0,MEAT")
                 .map(csv -> csv.split(","))
-                .map(array -> {
-                    String name = array[0];
-                    boolean vegetarian = array[2].equals(1);
-                    Double calories = Double.valueOf(array[1]);
-                    Dish.Type type = Dish.Type.valueOf(array[3]);
-                    return new Dish(calories, name, type, vegetarian);
-                })
+                .map(Dish::new)
                 .filter(dish -> dish.getType() == Dish.Type.FISH)
                 .forEach(dish -> {
                     System.out.println(dish);

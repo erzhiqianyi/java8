@@ -13,14 +13,8 @@ public class StreamSample {
                 "鳗鱼,500,1,FISH",
                 "猪肉,500,0,MEAT",
                 "鸡,20,0,MEAT")
-                .map(dish -> {
-                    String[] array = dish.split(",");
-                    String name = array[0];
-                    Double calories = Double.valueOf(array[1]);
-                    boolean vegetarian = array[2].equals(1);
-                    Dish.Type type = Dish.Type.valueOf(array[3]);
-                    return new Dish(calories, name, type, vegetarian);
-                })
+                .map(dish -> dish.split(","))
+                .map(Dish::new)
                 .collect(Collectors.toList());
         List<String> lowCaloricDishes = getLowCaloricDishesBeforeStream(dishes);
         List<String> lowCaloricDishesByStream = getLowCaloricDishesUseStream(dishes);

@@ -360,7 +360,29 @@ lines.forEach(System.out::println);
 ## 流收集数据
 ### 预定义收集器
 - 流元素规约汇总为一个数
+    - 最大值和最小值
+        - maxBy() 最大值
+        - max()  最大值 
+        - minBy() 最小值
+        - min() 最小值
+    - 总和
+        - summingInt() 计算int总和
+        - summingLong() 计算long总和
+        - summingDouble() 计算double总和
+    - 平均值
+        - averageInt() 计算int平均值  
+        - averageLong() 计算long平均值
+        - averageDouble() 计算double平均值
+    - 统计分析 
+    
+        计算总数量，总和，最小值，平均值，最大值
+        - summarizingInt()
+        - summarizingLong()
+        - summarizingDouble()
+    - joining() 连接字符串 
+          
     - counting() 计算总数
+    
     
 - 元素分组
 - 元素分区 
