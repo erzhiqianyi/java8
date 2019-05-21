@@ -14,8 +14,8 @@ public class Dish {
 
     public Dish(String[] array) {
         String name = array[0];
-        boolean vegetarian = array[2].equals(1);
         Double calories = Double.valueOf(array[1]);
+        boolean vegetarian = array[2].equals("1");
         Dish.Type type = Dish.Type.valueOf(array[3]);
 
         this.calories = calories;

@@ -387,6 +387,30 @@ lines.forEach(System.out::println);
     
 - 元素分组
    - groupingBy() 
-   - 多级分组  
+   - 多级分组 groupingBy()作为groupingBy()的参数 
+   - 按子组收集数据 其他收集器作为groupingBy()的参数
+   - 将收集器的结果转换为另一种类型 
+    collectingAndThen()
 - 元素分区 
+    分组的特殊情况，key为布尔值
+    partitioningBy()
+    
+### Collectors方法
+    - toList()
+    - toSet()
+    - toCollection()
+    - counting()
+    - summingInt()
+    - averagingInt()
+    - summarizingInt()
+    - joining()
+    - maxBy()
+    - minBy()
+    - reducing()
+    - collectingAndThen()
+    - groupingBy()
+    - partitioningBy() 
+    
+ 
 ### 自定义收集器
+- 收集器接口
