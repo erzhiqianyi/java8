@@ -360,6 +360,8 @@ lines.forEach(System.out::println);
 ## 流收集数据
 ### 预定义收集器
 - 流元素规约汇总为一个数
+
+    选择合适的操作
     - 最大值和最小值
         - maxBy() 最大值
         - max()  最大值 
@@ -380,10 +382,11 @@ lines.forEach(System.out::println);
         - summarizingLong()
         - summarizingDouble()
     - joining() 连接字符串 
-          
     - counting() 计算总数
-    
+    - reducing() 广义规约
     
 - 元素分组
+   - groupingBy() 
+   - 多级分组  
 - 元素分区 
 ### 自定义收集器

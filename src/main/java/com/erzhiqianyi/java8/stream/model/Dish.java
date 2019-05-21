@@ -12,7 +12,6 @@ public class Dish {
     private final boolean vegetarian;
 
 
-
     public Dish(String[] array) {
         String name = array[0];
         boolean vegetarian = array[2].equals(1);
@@ -32,4 +31,21 @@ public class Dish {
         FISH,
         OTHER
     }
+
+    public enum CaloriesLevel {
+        DIET,
+        NORMAL,
+        FAT;
+
+        public static CaloriesLevel level(Double calories) {
+            if (calories > 100 ){
+                return CaloriesLevel.FAT;
+            }else if(calories > 50){
+                return CaloriesLevel.NORMAL;
+            }else {
+                return CaloriesLevel.DIET;
+            }
+        }
+    }
 }
+
