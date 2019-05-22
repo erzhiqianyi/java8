@@ -410,7 +410,22 @@ lines.forEach(System.out::println);
     - collectingAndThen()
     - groupingBy()
     - partitioningBy() 
-    
- 
 ### 自定义收集器
-- 收集器接口
+- Collector 收集器接口
+```java
+public interface Collector<T, A, R> {
+    Supplier<A> supplier();
+    BiConsumer<A, T> accumulator();
+    BinaryOperator<A> combiner();
+    Function<A, R> finisher();
+    Set<Characteristics> characteristics();
+}
+```
+- Stream.collect()
+```java
+public interface Stream<T> extends BaseStream<T, Stream<T>> {
+ <R> R collect(Supplier<R> supplier,
+                  BiConsumer<R, ? super T> accumulator,
+                  BiConsumer<R, R> combiner);  
+}
+```

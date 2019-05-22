@@ -4,11 +4,9 @@ import com.erzhiqianyi.java8.stream.model.Dish;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.partitioningBy;
-import static java.util.stream.Collectors.toList;
 
 public class PartitionSample {
     public static void main(String[] args) {
