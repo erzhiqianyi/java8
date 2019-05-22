@@ -429,3 +429,12 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
                   BiConsumer<R, R> combiner);  
 }
 ```
+## 并行流
+在并行流中避免共享状态
+- 注意测试并行和顺序的性能差别
+- 留意装箱
+- 操作是否适用于并行流
+- 小数据流考虑使用顺序流
+- 考虑流水线总计算成本
+- 数据结构是否利于拆分
+- 合并操作代价
