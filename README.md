@@ -438,3 +438,43 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
 - 考虑流水线总计算成本
 - 数据结构是否利于拆分
 - 合并操作代价
+
+### Spliterator接口 
+```java
+
+public interface Spliterator<T> {
+    boolean tryAdvance(Consumer<? super T> action);
+    
+    Spliterator<T> trySplit();
+    
+    long estimateSize();
+    
+    int characteristics();
+}
+```
+## 重构
+### 用lambda表达式，方法引用和Stream改善代码可读性
+- 重构代码，用lambda表达式取代匿名类
+- 用方法引用重构lambda表达式 
+- 用Stream API重构命令式的数据处理
+### 测试
+- 使用peek()测试
+## 接口方法
+### 默认方法 
+以兼容的方式解决Java API类库的演进问题。
+不能向已有接口添加新方法，否则所有实现类都要更新。
+- default 
+加```default```表示方法为默认方法
+```java
+public interface Animal{
+    String name();
+    default String eat(){
+        System.out.println(" eat something");
+    }
+}
+```
+### 继承方法确定原则
+- 类的方法优先级最高,高于任何声明为默认方法的优先级
+- 第一条无法判断，子接口的优先级更高 
+- 无法判断，显示覆盖和调用期望的方法
+### 静态方法 
