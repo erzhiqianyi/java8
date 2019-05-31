@@ -478,3 +478,24 @@ public interface Animal{
 - 第一条无法判断，子接口的优先级更高 
 - 无法判断，显示覆盖和调用期望的方法
 ### 静态方法 
+加```static```表示方法为默认方法
+
+## 异步编程
+### Future接口
+```java
+public interface Future<V> {
+    
+    boolean cancel(boolean mayInterruptIfRunning);
+    
+    boolean isCancelled();
+    
+    boolean isDone();
+    
+    V get() throws InterruptedException, ExecutionException;
+    
+    V get(long timeout, TimeUnit unit);
+}
+```
+### CompletableFuture接口
+#### 同步API
+#### 异步API    
