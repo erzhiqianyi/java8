@@ -498,4 +498,12 @@ public interface Future<V> {
 ```
 ### CompletableFuture接口
 #### 同步API
+调用方在被调用方法运行的过程中会等待，被调用方运行结束返回，调用方取得被调用方的返回值并继续运行 
 #### 异步API    
+被调用方直接返回，执行具体计算的线程和调用方是异步的。执行具体计算的线程会将计算结果返回给调用方，
+返回方式用回调函数或调用方再次执行一个“等待，直到计算完成的”方法调用。
+#### 异步API异常处理
+使用```CompletableFuture.completeExceptionally()``` 抛出异常给客户端
+#### CompletableFuture工具方法
+- CompletableFuture.supplyAsync()
+
